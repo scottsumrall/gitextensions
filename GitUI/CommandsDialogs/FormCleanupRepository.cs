@@ -24,7 +24,9 @@ namespace GitUI.CommandsDialogs
             InitializeComponent();
             InitializeComplete();
             PreviewOutput.ReadOnly = true;
+
             checkBoxPathFilter_CheckedChanged(this, EventArgs.Empty);
+            checkBoxExcludePathFilter_CheckedChanged(this, EventArgs.Empty);
         }
 
         public void SetPathArgument(string? path)
@@ -100,7 +102,14 @@ namespace GitUI.CommandsDialogs
         {
             bool filterByPath = checkBoxPathFilter.Checked;
             textBoxPaths.Enabled = filterByPath;
-            labelPathHint.Visible = filterByPath;
+            labelPathHintInclude.Visible = filterByPath;
+        }
+
+        private void checkBoxExcludePathFilter_CheckedChanged(object sender, EventArgs e)
+        {
+            bool filterByPath = checkBoxExcludePathFilter.Checked;
+            textBoxExcludePaths.Enabled = filterByPath;
+            labelPathHintExclude.Visible = filterByPath;
         }
 
         private void AddPath_Click(object sender, EventArgs e)

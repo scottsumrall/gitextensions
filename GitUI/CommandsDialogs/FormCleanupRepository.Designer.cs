@@ -44,7 +44,8 @@
             textBoxExcludePaths = new TextBox();
             checkBoxExcludePathFilter = new CheckBox();
             AddExcludePath = new Button();
-            labelPathHint = new Label();
+            labelPathHintExclude = new Label();
+            labelPathHintInclude = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -215,6 +216,7 @@
             checkBoxExcludePathFilter.TabIndex = 8;
             checkBoxExcludePathFilter.Text = "Exclude the following path(s):";
             checkBoxExcludePathFilter.UseVisualStyleBackColor = true;
+            checkBoxExcludePathFilter.CheckedChanged += checkBoxExcludePathFilter_CheckedChanged;
             // 
             // AddExcludePath
             // 
@@ -227,14 +229,23 @@
             AddExcludePath.Text = "Add a path...";
             AddExcludePath.UseVisualStyleBackColor = true;
             // 
-            // labelPathHint
+            // labelPathHintExclude
             // 
-            labelPathHint.AutoSize = true;
-            labelPathHint.Location = new Point(50, 357);
-            labelPathHint.Name = "labelPathHint";
-            labelPathHint.Size = new Size(104, 15);
-            labelPathHint.TabIndex = 11;
-            labelPathHint.Text = "(one path per line)";
+            labelPathHintExclude.AutoSize = true;
+            labelPathHintExclude.Location = new Point(50, 357);
+            labelPathHintExclude.Name = "labelPathHintExclude";
+            labelPathHintExclude.Size = new Size(104, 15);
+            labelPathHintExclude.TabIndex = 11;
+            labelPathHintExclude.Text = "(one path per line)";
+            // 
+            // labelPathHintInclude
+            // 
+            labelPathHintInclude.AutoSize = true;
+            labelPathHintInclude.Location = new Point(50, 235);
+            labelPathHintInclude.Name = "labelPathHintInclude";
+            labelPathHintInclude.Size = new Size(104, 15);
+            labelPathHintInclude.TabIndex = 12;
+            labelPathHintInclude.Text = "(one path per line)";
             // 
             // FormCleanupRepository
             // 
@@ -243,7 +254,8 @@
             AutoScaleMode = AutoScaleMode.Dpi;
             CancelButton = _NO_TRANSLATE_Close;
             ClientSize = new Size(434, 561);
-            Controls.Add(labelPathHint);
+            Controls.Add(labelPathHintInclude);
+            Controls.Add(labelPathHintExclude);
             Controls.Add(textBoxExcludePaths);
             Controls.Add(checkBoxExcludePathFilter);
             Controls.Add(AddExcludePath);
@@ -287,6 +299,7 @@
         private TextBox textBoxExcludePaths;
         private CheckBox checkBoxExcludePathFilter;
         private Button AddExcludePath;
-        private Label labelPathHint;
+        private Label labelPathHintExclude;
+        private Label labelPathHintInclude;
     }
 }
