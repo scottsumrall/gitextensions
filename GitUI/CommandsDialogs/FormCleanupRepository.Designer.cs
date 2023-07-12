@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             Preview = new Button();
-            AddPath = new Button();
+            AddInclusivePath = new Button();
             Cleanup = new Button();
             _NO_TRANSLATE_Close = new Button();
             groupBox1 = new GroupBox();
@@ -43,7 +43,7 @@
             checkBoxPathFilter = new CheckBox();
             textBoxExcludePaths = new TextBox();
             checkBoxExcludePathFilter = new CheckBox();
-            AddExcludePath = new Button();
+            AddExclusivePath = new Button();
             labelPathHintExclude = new Label();
             labelPathHintInclude = new Label();
             groupBox1.SuspendLayout();
@@ -62,17 +62,17 @@
             Preview.UseVisualStyleBackColor = true;
             Preview.Click += Preview_Click;
             // 
-            // AddPath
+            // AddInclusivePath
             // 
-            AddPath.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            AddPath.ImageAlign = ContentAlignment.MiddleLeft;
-            AddPath.Location = new Point(302, 139);
-            AddPath.Name = "AddPath";
-            AddPath.Size = new Size(120, 25);
-            AddPath.TabIndex = 0;
-            AddPath.Text = "Add a path...";
-            AddPath.UseVisualStyleBackColor = true;
-            AddPath.Click += AddPath_Click;
+            AddInclusivePath.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            AddInclusivePath.ImageAlign = ContentAlignment.MiddleLeft;
+            AddInclusivePath.Location = new Point(302, 139);
+            AddInclusivePath.Name = "AddInclusivePath";
+            AddInclusivePath.Size = new Size(120, 25);
+            AddInclusivePath.TabIndex = 0;
+            AddInclusivePath.Text = "Add a path...";
+            AddInclusivePath.UseVisualStyleBackColor = true;
+            AddInclusivePath.Click += AddPath_Click;
             // 
             // Cleanup
             // 
@@ -218,16 +218,16 @@
             checkBoxExcludePathFilter.UseVisualStyleBackColor = true;
             checkBoxExcludePathFilter.CheckedChanged += checkBoxExcludePathFilter_CheckedChanged;
             // 
-            // AddExcludePath
+            // AddExclusivePath
             // 
-            AddExcludePath.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            AddExcludePath.ImageAlign = ContentAlignment.MiddleLeft;
-            AddExcludePath.Location = new Point(302, 260);
-            AddExcludePath.Name = "AddExcludePath";
-            AddExcludePath.Size = new Size(120, 25);
-            AddExcludePath.TabIndex = 9;
-            AddExcludePath.Text = "Add a path...";
-            AddExcludePath.UseVisualStyleBackColor = true;
+            AddExclusivePath.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            AddExclusivePath.ImageAlign = ContentAlignment.MiddleLeft;
+            AddExclusivePath.Location = new Point(302, 260);
+            AddExclusivePath.Name = "AddExclusivePath";
+            AddExclusivePath.Size = new Size(120, 25);
+            AddExclusivePath.TabIndex = 9;
+            AddExclusivePath.Text = "Add a path...";
+            AddExclusivePath.UseVisualStyleBackColor = true;
             // 
             // labelPathHintExclude
             // 
@@ -249,7 +249,7 @@
             // 
             // FormCleanupRepository
             // 
-            AcceptButton = AddPath;
+            AcceptButton = AddInclusivePath;
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             CancelButton = _NO_TRANSLATE_Close;
@@ -258,7 +258,7 @@
             Controls.Add(labelPathHintExclude);
             Controls.Add(textBoxExcludePaths);
             Controls.Add(checkBoxExcludePathFilter);
-            Controls.Add(AddExcludePath);
+            Controls.Add(AddExclusivePath);
             Controls.Add(textBoxPaths);
             Controls.Add(checkBoxPathFilter);
             Controls.Add(label1);
@@ -268,7 +268,7 @@
             Controls.Add(_NO_TRANSLATE_Close);
             Controls.Add(Cleanup);
             Controls.Add(Preview);
-            Controls.Add(AddPath);
+            Controls.Add(AddInclusivePath);
             MaximizeBox = false;
             MinimizeBox = false;
             MinimumSize = new Size(450, 600);
@@ -284,7 +284,7 @@
         #endregion
 
         private Button Preview;
-        private Button AddPath;
+        private Button AddInclusivePath;
         private Button Cleanup;
         private Button _NO_TRANSLATE_Close;
         private GroupBox groupBox1;
@@ -298,7 +298,7 @@
         private CheckBox checkBoxPathFilter;
         private TextBox textBoxExcludePaths;
         private CheckBox checkBoxExcludePathFilter;
-        private Button AddExcludePath;
+        private Button AddExclusivePath;
         private Label labelPathHintExclude;
         private Label labelPathHintInclude;
     }
