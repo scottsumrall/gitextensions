@@ -114,6 +114,16 @@ namespace GitUI.CommandsDialogs
 
         private void AddPath_Click(object sender, EventArgs e)
         {
+            string path = RequestUserPath();
+
+            if (path is not null)
+            {
+                textBoxPaths.Text += path;
+            }
+        }
+
+        private string? RequestUserPath()
+        {
             FolderBrowserDialog dialog = new()
             {
                 SelectedPath = Module.WorkingDir,
@@ -134,7 +144,12 @@ namespace GitUI.CommandsDialogs
                     textBoxPaths.Text += Environment.NewLine;
                 }
 
-                textBoxPaths.Text += string.Join(Environment.NewLine, subFoldersToClean);
+                string userPath = string.Join(Environment.NewLine, subFoldersToClean);
+                return userPath;
+            }
+            else
+            {
+                return null;
             }
         }
     }
