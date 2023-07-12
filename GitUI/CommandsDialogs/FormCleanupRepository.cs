@@ -33,11 +33,17 @@ namespace GitUI.CommandsDialogs
         {
             if (string.IsNullOrEmpty(path))
             {
+                checkBoxExcludePathFilter.Checked = false;
+                textBoxExcludePaths.Text = "";
+
                 checkBoxPathFilter.Checked = false;
                 textBoxPaths.Text = "";
             }
             else
             {
+                checkBoxExcludePathFilter.Checked = true;
+                textBoxExcludePaths.Text = path;
+
                 checkBoxPathFilter.Checked = true;
                 textBoxPaths.Text = path;
             }
@@ -119,6 +125,16 @@ namespace GitUI.CommandsDialogs
             if (path is not null)
             {
                 textBoxPaths.Text += path;
+            }
+        }
+
+        private void AddExclusivePath_Click(object sender, EventArgs e)
+        {
+            string path = RequestUserPath();
+
+            if (path is not null)
+            {
+                textBoxExcludePaths.Text += path;
             }
         }
 

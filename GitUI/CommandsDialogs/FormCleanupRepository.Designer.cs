@@ -228,6 +228,7 @@
             AddExclusivePath.TabIndex = 9;
             AddExclusivePath.Text = "Add a path...";
             AddExclusivePath.UseVisualStyleBackColor = true;
+            AddExclusivePath.Click += AddExclusivePath_Click;
             // 
             // labelPathHintExclude
             // 
