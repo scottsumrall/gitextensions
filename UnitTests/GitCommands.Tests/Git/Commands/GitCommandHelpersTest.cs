@@ -499,15 +499,17 @@ namespace GitCommandsTests.Git.Commands
                 () => GitCommandHelpers.RebaseCmd("branch", false, false, false, false, false, false, from: "from", onto: null));
         }
 
-        [TestCase(CleanMode.OnlyNonIgnored, true, false, null, "clean --dry-run")]
-        [TestCase(CleanMode.OnlyNonIgnored, false, false, null, "clean -f")]
-        [TestCase(CleanMode.OnlyNonIgnored, false, true, null, "clean -d -f")]
-        [TestCase(CleanMode.OnlyNonIgnored, false, false, "paths", "clean -f paths")]
-        [TestCase(CleanMode.OnlyIgnored, false, false, null, "clean -X -f")]
-        [TestCase(CleanMode.All, false, false, null, "clean -x -f")]
-        public void CleanCmd(CleanMode mode, bool dryRun, bool directories, string paths, string expected)
+        [TestCase(CleanMode.OnlyNonIgnored, true, false, null, null, "clean --dry-run")]
+        [TestCase(CleanMode.OnlyNonIgnored, false, false, null, null, "clean -f")]
+        [TestCase(CleanMode.OnlyNonIgnored, false, true, null, null, "clean -d -f")]
+        [TestCase(CleanMode.OnlyNonIgnored, false, false, "paths", null, "clean -f paths")]
+        [TestCase(CleanMode.OnlyNonIgnored, false, false, "paths", "-e /excludes", "clean -f paths -e /excludes")]
+        [TestCase(CleanMode.OnlyNonIgnored, false, false, null, "-e /excludes", "clean -f -e /excludes")]
+        [TestCase(CleanMode.OnlyIgnored, false, false, null, null, "clean -X -f")]
+        [TestCase(CleanMode.All, false, false, null, null, "clean -x -f")]
+        public void CleanCmd(CleanMode mode, bool dryRun, bool directories, string paths, string excludes, string expected)
         {
-            Assert.AreEqual(expected, GitCommandHelpers.CleanCmd(mode, dryRun, directories, paths).Arguments);
+            Assert.AreEqual(expected, GitCommandHelpers.CleanCmd(mode, dryRun, directories, paths, excludes).Arguments);
         }
 
         [TestCase(null)]
