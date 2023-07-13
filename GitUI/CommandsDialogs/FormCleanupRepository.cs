@@ -51,7 +51,9 @@ namespace GitUI.CommandsDialogs
 
         private void Preview_Click(object sender, EventArgs e)
         {
-            var cleanUpCmd = GitCommandHelpers.CleanCmd(GetCleanMode(), dryRun: true, directories: RemoveDirectories.Checked, paths: GetInclusivePathArgumentFromGui());
+            var cleanUpCmd = GitCommandHelpers.CleanCmd(GetCleanMode(), dryRun: true, directories: RemoveDirectories.Checked,
+                paths: GetInclusivePathArgumentFromGui(), excludes: GetExclusivePathArgumentFromGui());
+
             string cmdOutput = FormProcess.ReadDialog(this, arguments: cleanUpCmd, Module.WorkingDir, input: null, useDialogSettings: true);
             PreviewOutput.Text = EnvUtils.ReplaceLinuxNewLinesDependingOnPlatform(cmdOutput);
         }
@@ -60,7 +62,9 @@ namespace GitUI.CommandsDialogs
         {
             if (MessageBox.Show(this, _reallyCleanupQuestion.Text, _reallyCleanupQuestionCaption.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                var cleanUpCmd = GitCommandHelpers.CleanCmd(GetCleanMode(), dryRun: false, directories: RemoveDirectories.Checked, paths: GetInclusivePathArgumentFromGui());
+                var cleanUpCmd = GitCommandHelpers.CleanCmd(GetCleanMode(), dryRun: false, directories: RemoveDirectories.Checked,
+                    paths: GetInclusivePathArgumentFromGui(), excludes: GetExclusivePathArgumentFromGui());
+
                 string cmdOutput = FormProcess.ReadDialog(this, arguments: cleanUpCmd, Module.WorkingDir, input: null, useDialogSettings: true);
                 PreviewOutput.Text = EnvUtils.ReplaceLinuxNewLinesDependingOnPlatform(cmdOutput);
             }
@@ -143,7 +147,7 @@ namespace GitUI.CommandsDialogs
 
         private void AddExclusivePath_Click(object sender, EventArgs e)
         {
-            string path = RequestUserPath();
+            string path = RequestUserFilePath();
 
             if (path is not null)
             {
