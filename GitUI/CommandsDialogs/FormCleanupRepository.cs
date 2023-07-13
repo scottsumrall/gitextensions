@@ -36,16 +36,16 @@ namespace GitUI.CommandsDialogs
                 checkBoxExcludePathFilter.Checked = false;
                 textBoxExcludePaths.Text = "";
 
-                checkBoxPathFilter.Checked = false;
-                textBoxPaths.Text = "";
+                checkBoxIncludePathFilter.Checked = false;
+                textBoxIncludePaths.Text = "";
             }
             else
             {
                 checkBoxExcludePathFilter.Checked = true;
                 textBoxExcludePaths.Text = path;
 
-                checkBoxPathFilter.Checked = true;
-                textBoxPaths.Text = path;
+                checkBoxIncludePathFilter.Checked = true;
+                textBoxIncludePaths.Text = path;
             }
         }
 
@@ -92,7 +92,7 @@ namespace GitUI.CommandsDialogs
 
         private string? GetInclusivePathArgumentFromGui()
         {
-            if (!checkBoxPathFilter.Checked)
+            if (!checkBoxIncludePathFilter.Checked)
             {
                 return null;
             }
@@ -100,7 +100,7 @@ namespace GitUI.CommandsDialogs
             // 1. get all lines from text box which are not empty
             // 2. wrap lines with ""
             // 3. join together with space as separator
-            return string.Join(" ", textBoxPaths.Lines.Where(a => !string.IsNullOrEmpty(a)).Select(a => string.Format("\"{0}\"", a)));
+            return string.Join(" ", textBoxIncludePaths.Lines.Where(a => !string.IsNullOrEmpty(a)).Select(a => string.Format("\"{0}\"", a)));
         }
 
         private string? GetExclusivePathArgumentFromGui()
@@ -125,8 +125,8 @@ namespace GitUI.CommandsDialogs
 
         private void checkBoxPathFilter_CheckedChanged(object sender, EventArgs e)
         {
-            bool filterByPath = checkBoxPathFilter.Checked;
-            textBoxPaths.Enabled = filterByPath;
+            bool filterByPath = checkBoxIncludePathFilter.Checked;
+            textBoxIncludePaths.Enabled = filterByPath;
             labelPathHintInclude.Visible = filterByPath;
         }
 
@@ -137,17 +137,17 @@ namespace GitUI.CommandsDialogs
             labelPathHintExclude.Visible = filterByPath;
         }
 
-        private void AddPath_Click(object sender, EventArgs e)
+        private void AddIncludePath_Click(object sender, EventArgs e)
         {
             string path = RequestUserPath();
 
             if (path is not null)
             {
-                textBoxPaths.Text += path;
+                textBoxIncludePaths.Text += path;
             }
         }
 
-        private void AddExclusivePath_Click(object sender, EventArgs e)
+        private void AddExcludePath_Click(object sender, EventArgs e)
         {
             string path = RequestUserFilePath();
 
@@ -172,11 +172,11 @@ namespace GitUI.CommandsDialogs
                 && Directory.Exists(subFoldersToClean)
                 && !subFoldersToClean.Equals(Module.WorkingDirGitDir.TrimEnd(Path.DirectorySeparatorChar)))
             {
-                checkBoxPathFilter.Checked = true;
-                textBoxPaths.Enabled = true;
-                if (textBoxPaths.Text.Length != 0)
+                checkBoxIncludePathFilter.Checked = true;
+                textBoxIncludePaths.Enabled = true;
+                if (textBoxIncludePaths.Text.Length != 0)
                 {
-                    textBoxPaths.Text += Environment.NewLine;
+                    textBoxIncludePaths.Text += Environment.NewLine;
                 }
 
                 string userPath = string.Join(Environment.NewLine, subFoldersToClean);
