@@ -55,7 +55,7 @@
             Preview.Image = Properties.Images.Preview;
             Preview.ImageAlign = ContentAlignment.MiddleLeft;
             Preview.Location = new Point(62, 492);
-            Preview.Margin = new Padding(4, 4, 4, 4);
+            Preview.Margin = new Padding(4);
             Preview.Name = "Preview";
             Preview.Size = new Size(150, 31);
             Preview.TabIndex = 0;
@@ -68,7 +68,7 @@
             AddInclusivePath.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             AddInclusivePath.ImageAlign = ContentAlignment.MiddleLeft;
             AddInclusivePath.Location = new Point(378, 174);
-            AddInclusivePath.Margin = new Padding(4, 4, 4, 4);
+            AddInclusivePath.Margin = new Padding(4);
             AddInclusivePath.Name = "AddInclusivePath";
             AddInclusivePath.Size = new Size(150, 31);
             AddInclusivePath.TabIndex = 0;
@@ -82,7 +82,7 @@
             Cleanup.Image = Properties.Images.CleanupRepo;
             Cleanup.ImageAlign = ContentAlignment.MiddleLeft;
             Cleanup.Location = new Point(220, 492);
-            Cleanup.Margin = new Padding(4, 4, 4, 4);
+            Cleanup.Margin = new Padding(4);
             Cleanup.Name = "Cleanup";
             Cleanup.Size = new Size(150, 31);
             Cleanup.TabIndex = 1;
@@ -95,7 +95,7 @@
             _NO_TRANSLATE_Close.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             _NO_TRANSLATE_Close.DialogResult = DialogResult.OK;
             _NO_TRANSLATE_Close.Location = new Point(378, 492);
-            _NO_TRANSLATE_Close.Margin = new Padding(4, 4, 4, 4);
+            _NO_TRANSLATE_Close.Margin = new Padding(4);
             _NO_TRANSLATE_Close.Name = "_NO_TRANSLATE_Close";
             _NO_TRANSLATE_Close.Size = new Size(150, 31);
             _NO_TRANSLATE_Close.TabIndex = 2;
@@ -110,9 +110,9 @@
             groupBox1.Controls.Add(RemoveNonIgnored);
             groupBox1.Controls.Add(RemoveAll);
             groupBox1.Location = new Point(15, 15);
-            groupBox1.Margin = new Padding(4, 4, 4, 4);
+            groupBox1.Margin = new Padding(4);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(4, 4, 4, 4);
+            groupBox1.Padding = new Padding(4);
             groupBox1.Size = new Size(512, 125);
             groupBox1.TabIndex = 3;
             groupBox1.TabStop = false;
@@ -122,7 +122,7 @@
             // 
             RemoveIgnored.AutoSize = true;
             RemoveIgnored.Location = new Point(9, 84);
-            RemoveIgnored.Margin = new Padding(4, 4, 4, 4);
+            RemoveIgnored.Margin = new Padding(4);
             RemoveIgnored.Name = "RemoveIgnored";
             RemoveIgnored.Size = new Size(272, 24);
             RemoveIgnored.TabIndex = 2;
@@ -133,7 +133,7 @@
             // 
             RemoveNonIgnored.AutoSize = true;
             RemoveNonIgnored.Location = new Point(9, 54);
-            RemoveNonIgnored.Margin = new Padding(4, 4, 4, 4);
+            RemoveNonIgnored.Margin = new Padding(4);
             RemoveNonIgnored.Name = "RemoveNonIgnored";
             RemoveNonIgnored.Size = new Size(303, 24);
             RemoveNonIgnored.TabIndex = 1;
@@ -145,7 +145,7 @@
             RemoveAll.AutoSize = true;
             RemoveAll.Checked = true;
             RemoveAll.Location = new Point(9, 25);
-            RemoveAll.Margin = new Padding(4, 4, 4, 4);
+            RemoveAll.Margin = new Padding(4);
             RemoveAll.Name = "RemoveAll";
             RemoveAll.Size = new Size(204, 24);
             RemoveAll.TabIndex = 0;
@@ -159,7 +159,7 @@
             RemoveDirectories.Checked = true;
             RemoveDirectories.CheckState = CheckState.Checked;
             RemoveDirectories.Location = new Point(24, 149);
-            RemoveDirectories.Margin = new Padding(4, 4, 4, 4);
+            RemoveDirectories.Margin = new Padding(4);
             RemoveDirectories.Name = "RemoveDirectories";
             RemoveDirectories.Size = new Size(228, 24);
             RemoveDirectories.TabIndex = 4;
@@ -170,7 +170,7 @@
             // 
             PreviewOutput.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             PreviewOutput.Location = new Point(14, 570);
-            PreviewOutput.Margin = new Padding(4, 4, 4, 4);
+            PreviewOutput.Margin = new Padding(4);
             PreviewOutput.Multiline = true;
             PreviewOutput.Name = "PreviewOutput";
             PreviewOutput.ScrollBars = ScrollBars.Both;
@@ -192,7 +192,7 @@
             // 
             textBoxIncludePaths.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxIncludePaths.Location = new Point(60, 211);
-            textBoxIncludePaths.Margin = new Padding(4, 4, 4, 4);
+            textBoxIncludePaths.Margin = new Padding(4);
             textBoxIncludePaths.Multiline = true;
             textBoxIncludePaths.Name = "textBoxIncludePaths";
             textBoxIncludePaths.ScrollBars = ScrollBars.Vertical;
@@ -203,11 +203,11 @@
             // 
             checkBoxIncludePathFilter.AutoSize = true;
             checkBoxIncludePathFilter.Location = new Point(24, 180);
-            checkBoxIncludePathFilter.Margin = new Padding(4, 4, 4, 4);
+            checkBoxIncludePathFilter.Margin = new Padding(4);
             checkBoxIncludePathFilter.Name = "checkBoxIncludePathFilter";
-            checkBoxIncludePathFilter.Size = new Size(248, 24);
+            checkBoxIncludePathFilter.Size = new Size(311, 24);
             checkBoxIncludePathFilter.TabIndex = 0;
-            checkBoxIncludePathFilter.Text = "Affect the following path(s) only:";
+            checkBoxIncludePathFilter.Text = "Affect the following directory path(s) only:";
             checkBoxIncludePathFilter.UseVisualStyleBackColor = true;
             checkBoxIncludePathFilter.CheckedChanged += checkBoxPathFilter_CheckedChanged;
             // 
@@ -215,7 +215,7 @@
             // 
             textBoxExcludePaths.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxExcludePaths.Location = new Point(60, 362);
-            textBoxExcludePaths.Margin = new Padding(4, 4, 4, 4);
+            textBoxExcludePaths.Margin = new Padding(4);
             textBoxExcludePaths.Multiline = true;
             textBoxExcludePaths.Name = "textBoxExcludePaths";
             textBoxExcludePaths.ScrollBars = ScrollBars.Vertical;
@@ -226,11 +226,11 @@
             // 
             checkBoxExcludePathFilter.AutoSize = true;
             checkBoxExcludePathFilter.Location = new Point(24, 331);
-            checkBoxExcludePathFilter.Margin = new Padding(4, 4, 4, 4);
+            checkBoxExcludePathFilter.Margin = new Padding(4);
             checkBoxExcludePathFilter.Name = "checkBoxExcludePathFilter";
-            checkBoxExcludePathFilter.Size = new Size(227, 24);
+            checkBoxExcludePathFilter.Size = new Size(252, 24);
             checkBoxExcludePathFilter.TabIndex = 8;
-            checkBoxExcludePathFilter.Text = "Exclude the following path(s):";
+            checkBoxExcludePathFilter.Text = "Exclude the following file path(s):";
             checkBoxExcludePathFilter.UseVisualStyleBackColor = true;
             checkBoxExcludePathFilter.CheckedChanged += checkBoxExcludePathFilter_CheckedChanged;
             // 
@@ -239,7 +239,7 @@
             AddExclusivePath.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             AddExclusivePath.ImageAlign = ContentAlignment.MiddleLeft;
             AddExclusivePath.Location = new Point(378, 325);
-            AddExclusivePath.Margin = new Padding(4, 4, 4, 4);
+            AddExclusivePath.Margin = new Padding(4);
             AddExclusivePath.Name = "AddExclusivePath";
             AddExclusivePath.Size = new Size(150, 31);
             AddExclusivePath.TabIndex = 9;
@@ -289,7 +289,7 @@
             Controls.Add(Cleanup);
             Controls.Add(Preview);
             Controls.Add(AddInclusivePath);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             MaximizeBox = false;
             MinimizeBox = false;
             MinimumSize = new Size(558, 738);
