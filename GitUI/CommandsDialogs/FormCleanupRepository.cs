@@ -181,5 +181,42 @@ namespace GitUI.CommandsDialogs
                 return null;
             }
         }
+
+        private string? RequestUserFilePath()
+        {
+            var fileContent = string.Empty;
+            var filePath = string.Empty;
+
+            using (OpenFileDialog openFileDialog = new())
+            {
+                openFileDialog.InitialDirectory = Module.WorkingDir;
+                openFileDialog.RestoreDirectory = true;
+
+                var result = openFileDialog.ShowDialog(this);
+
+                string fileToExclude;
+                if (result == DialogResult.OK
+                    && (fileToExclude = openFileDialog.FileName).StartsWith(Module.WorkingDir)
+                    && File.Exists(fileToExclude))
+                {
+                    checkBoxExcludePathFilter.Checked = true;
+                    textBoxExcludePaths.Enabled = true;
+
+                    if (textBoxExcludePaths.Text.Length != 0)
+                    {
+                        textBoxExcludePaths.Text += Environment.NewLine;
+                    }
+
+                    fileToExclude = fileToExclude.Replace(Module.WorkingDir, "");
+
+                    string userPath = string.Join(Environment.NewLine, fileToExclude);
+                    return userPath;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
     }
 }
