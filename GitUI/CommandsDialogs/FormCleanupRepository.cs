@@ -190,9 +190,6 @@ namespace GitUI.CommandsDialogs
 
         private string? RequestUserFilePath()
         {
-            var fileContent = string.Empty;
-            var filePath = string.Empty;
-
             using (OpenFileDialog openFileDialog = new())
             {
                 openFileDialog.InitialDirectory = Module.WorkingDir;
