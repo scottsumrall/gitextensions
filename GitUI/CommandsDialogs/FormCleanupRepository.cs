@@ -153,6 +153,7 @@ namespace GitUI.CommandsDialogs
 
             if (path is not null)
             {
+                path = path.Replace(Module.WorkingDir, "");
                 textBoxExcludePaths.Text += path;
             }
         }
@@ -209,8 +210,6 @@ namespace GitUI.CommandsDialogs
                     {
                         textBoxExcludePaths.Text += Environment.NewLine;
                     }
-
-                    fileToExclude = fileToExclude.Replace(Module.WorkingDir, "");
 
                     string userPath = string.Join(Environment.NewLine, fileToExclude);
                     return userPath;
