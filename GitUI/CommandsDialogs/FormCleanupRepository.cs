@@ -113,7 +113,8 @@ namespace GitUI.CommandsDialogs
             // 1. get all lines from text box which are not empty
             // 2. wrap lines with ""
             // 3. join together with space as separator
-            return string.Join(" ", textBoxExcludePaths.Lines.Where(a => !string.IsNullOrEmpty(a)).Select(a => string.Format("\"{0}\"", a)));
+
+            return string.Join(" ", textBoxExcludePaths.Lines.Where(a => !string.IsNullOrEmpty(a)).Select(a => string.Format("-e /{0}", a.Replace(" ", "?").Replace("\\", "/"))));
         }
 
         private void Close_Click(object sender, EventArgs e)
