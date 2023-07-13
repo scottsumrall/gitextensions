@@ -139,7 +139,7 @@ namespace GitUI.CommandsDialogs
 
         private void AddIncludePath_Click(object sender, EventArgs e)
         {
-            string path = RequestUserPath();
+            string path = RequestUserFolderPath();
 
             if (path is not null)
             {
@@ -158,7 +158,7 @@ namespace GitUI.CommandsDialogs
             }
         }
 
-        private string? RequestUserPath()
+        private string? RequestUserFolderPath()
         {
             FolderBrowserDialog dialog = new()
             {
