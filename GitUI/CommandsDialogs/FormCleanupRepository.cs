@@ -111,7 +111,8 @@ namespace GitUI.CommandsDialogs
             }
 
             // 1. get all lines from text box which are not empty
-            // 2. wrap lines with ""
+            // 2. Prepend lines with '-e /'
+            // 3. Replace whitespace with '?' and backslash with forward slash
             // 3. join together with space as separator
 
             return string.Join(" ", textBoxExcludePaths.Lines.Where(a => !string.IsNullOrEmpty(a)).Select(a => string.Format("-e /{0}", a.Replace(" ", "?").Replace("\\", "/"))));
