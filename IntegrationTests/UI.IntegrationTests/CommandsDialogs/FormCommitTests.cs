@@ -19,7 +19,6 @@ namespace GitExtensions.UITests.CommandsDialogs
         private ReferenceRepository _referenceRepository;
 
         // Track the original setting value
-        private bool _provideAutocompletion;
         private bool _showAvailableDiffTools;
 
         // Created once for each test
@@ -36,18 +35,15 @@ namespace GitExtensions.UITests.CommandsDialogs
         public void OneTimeSetUp()
         {
             // Remember the current setting...
-            _provideAutocompletion = AppSettings.ProvideAutocompletion;
             _showAvailableDiffTools = AppSettings.ShowAvailableDiffTools;
 
-            // ...and stop loading auto completion and custom diff tools
-            AppSettings.ProvideAutocompletion = false;
+            // ...and stop loading custom diff tools
             AppSettings.ShowAvailableDiffTools = false;
         }
 
         [OneTimeTearDown]
         public void OneTimeTearDown()
         {
-            AppSettings.ProvideAutocompletion = _provideAutocompletion;
             AppSettings.ShowAvailableDiffTools = _showAvailableDiffTools;
             _referenceRepository.Dispose();
         }
